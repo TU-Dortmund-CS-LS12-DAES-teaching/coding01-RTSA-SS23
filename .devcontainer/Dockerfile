@@ -5,8 +5,8 @@ ARG VARIANT="jammy"
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends \
+RUN apt-get update --fix-missing && export DEBIAN_FRONTEND=noninteractive \
+     && apt-get -y install --no-install-recommends --fix-missing \
      llvm llvm-dev clang lldb gcc gdb cmake make ninja-build \
      clang-format clangd
 
